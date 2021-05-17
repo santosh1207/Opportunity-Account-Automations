@@ -1,0 +1,10 @@
+trigger OpportunityTrigger on Opportunity (after insert, after update) {
+
+    if(trigger.isAfter && trigger.isInsert){
+    	OpporutnityTriggerHandler.onInsertAccountRecords(trigger.new);	    
+    }
+    
+    if(trigger.isAfter && trigger.isUpdate){
+    	OpporutnityTriggerHandler.onUpdateAccountRecords(trigger.oldMap, trigger.newMap);
+    }
+}
